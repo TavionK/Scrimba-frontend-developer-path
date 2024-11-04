@@ -46,7 +46,8 @@ img {
 }
 
 .activities {
-    margin: 50px 20px;
+    margin: 50px 40px;
+    padding: 0 20px;
     display: flex;
     justify-content: space-around;
 }
@@ -55,6 +56,11 @@ img {
     height: 100px;
     object-fit: cover;
     border-radius: 50%;
+}
+
+.activity {
+    padding: 0 20px;
+    margin: auto 15px;
 }
 
 /* Guide section styles */
