@@ -103,3 +103,15 @@ img {
     border-radius: inherit;
     margin: 0 10px;
 }
+
+#guide-title{
+    margin: 0px;
+}
+
+#guide-p {
+    margin: 25px 0;
+}
+
+#guide-name{
+    margin-top: 0;
+}
