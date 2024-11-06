@@ -21,21 +21,23 @@ img {
 
 #hero-title {
     margin: 80px auto 25px;
-    background-color: blue;
+    background-color: #457b9d;
     padding: 10px 20px;
     border-radius: 20px;
+    color: white;
 }
 
 #hero-subtitle{
     border-radius: 20px;
-    background-color: blue;
+    color: white;
+    background-color: #1d3557;
     padding: 10px 20px;
     margin: 0 auto;
 }
 
 /* Activity styles */
 #activities-section {
-    background-color: aquamarine;
+    background-color: #f1faee;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -71,13 +73,17 @@ img {
     justify-content: space-around;
     text-align: center;
     margin: 40px auto;
-    background-color: beige;
-    width: 600px;
-    border-bottom: 5px solid purple;
+    background-color: #a8dadc;
+    width: 500px;
+    border-bottom: 5px solid #1d3557;
 }
 
 #guide-info {
     order: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 30px;
 }
 
 #guide-img {
