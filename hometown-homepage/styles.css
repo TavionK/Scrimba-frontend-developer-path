@@ -61,8 +61,19 @@ img {
 }
 
 .activity {
-    padding: 0 20px;
+    padding: 20px;
+    width: 200px;
     margin: auto 15px;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+.grow {
+    transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+    transform: scale(1.1);
 }
 
 /* Guide section styles */
