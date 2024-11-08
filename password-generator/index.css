@@ -11,7 +11,7 @@ body{
     margin: 80px auto 20px;
 }
 
-button{
+#generate-btn {
     color: white;
     background-color: #10B981;
     border: none;
@@ -24,7 +24,7 @@ button{
     transition: .3s;
 }
 
-button:hover{
+#generate-btn:hover{
     background-color: #0b825a;
 }
 
@@ -40,14 +40,17 @@ span{
 hr{
     color: #273549 ;
 }
-.pass {
+.pass-btn {
     background-color: #273549;
     border-radius: 5px;
     margin: 20px 0;
     color: #55F991 ;
     padding: 20px 25px;
-    width: 150px;
+    /* only needed for paragraph style */
+    /* width: 175px; */
     text-align: center;
+    border: none;
+    font-size: 16px;
 }
 #title {
     margin: 40px 0 5px 0;
