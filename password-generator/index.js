@@ -2,13 +2,11 @@ let pass1El = document.getElementById("pass1-el")
 let pass2El = document.getElementById("pass2-el")
 
 function copy(){
-    console.log(pass1El.textContent)
     navigator.clipboard.writeText(pass1El.textContent)
     alert("Copied " + pass1El.textContent + " to clipboard")
 }
 
 function copy2(){
-    console.log(pass2El.textContent)
     navigator.clipboard.writeText(pass2El.textContent)
     alert("Copied " + pass2El.textContent + " to clipboard")
 }
