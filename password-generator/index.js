@@ -19,9 +19,10 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 
 //15 characters long
 function generatePassword(){
+    let passLen = document.getElementById("pass-len").value
     pass1El.textContent=""
     pass2El.textContent=""
-    for (let i = 0; i < 15; i++){
+    for (let i = 0; i < passLen; i++){
         pass1El.textContent += characters[Math.floor(Math.random()* characters.length)]
         pass2El.textContent += characters[Math.floor(Math.random()* characters.length)]
     }
