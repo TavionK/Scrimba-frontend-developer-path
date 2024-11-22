@@ -1,5 +1,65 @@
 html, body {
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    /* width:375px; */
 }
 
+
+
+
+.main-logo{
+    width: 127px;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+}
+
+header{
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-header{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.post-header .profile-img{
+    margin-right: 10px;
+}
+
+.bold-text{
+    font-weight: bold;
+}
+
+.interaction-icon{
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+}
+
+.interaction-icon:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.icons{
+    display: flex;
+    margin: 20px 0;
+}
+.post-footer{
+    padding-left: 10px;
+}
+.img-post{
+    width: 100%;
+}
