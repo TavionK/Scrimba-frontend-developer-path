@@ -1,9 +1,13 @@
 import { menuArray } from "/data.js"
 
 const cart = []
+let cartIdCounter = 0
 document.addEventListener('click', function(e){
     if (e.target.dataset.id){
     addToCart(e.target.dataset.id)
+    }
+    else if (e.target.dataset.index){
+        removeFromCart(e.target.dataset.index)
     }
 })
 
@@ -17,20 +21,18 @@ function addToCart(id){
 }
 
 function getCartHtml(){
-    const cartHtml = cart.map(function(food){
+    const cartHtml = cart.map(function(food, index){
         return `
         <div class="cart-item">
             <div class="cart-item-info">
                 <p>${food.name}</p>
-                <p class="lighter">remove</p>
+                <p class="lighter" data-index="${index}">remove</p>
             </div>
             <div>
                 <p>$${food.price}</p>
             </div>
         </div>`
     })
-
-    console.log(cartHtml)
 
     const totalPrice = cart.reduce(function(total, current){
         return total + current.price
@@ -45,6 +47,11 @@ function getCartHtml(){
         <p>$${totalPrice}</p>
     </div>
     <button class="green-btn">Complete order</button>`
+}
+
+function removeFromCart(index){
+    cart.splice(index, 1)
+    getCartHtml()
 }
 
 function getMenuItemsHtml() {
@@ -66,7 +73,6 @@ function getMenuItemsHtml() {
             </div>
         </div>`
     })
-    console.log(menuItemsHtml)
     return menuItemsHtml
 }
 
