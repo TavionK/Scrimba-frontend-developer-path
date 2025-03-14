@@ -1,3 +1,96 @@
 body {
     margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 } 
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+    
+}
+
+
+/* Header Section */
+header {
+    background-image: url(/images/burger-header.png);
+    background-size: cover;
+    height: 200px;
+    color: white;
+    padding: 30px 0;
+}
+
+/* Menu Section */
+.food-card,
+.food-info{
+    align-items: center;
+}
+
+.food-card{
+    border-bottom: 1px solid #D2D2D2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.food-info{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+}
+
+.icon{
+    font-size: 70px;
+}
+
+.add-food{
+    justify-self: end;
+}
+
+.add-cart-btn:hover{
+    cursor: pointer;
+}
+
+/* Cart Section */
+.cart-price{
+    display: flex;
+    justify-content: space-between;
+}
+.cart-item-info{
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+}
+.cart-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* Typography */
+.order-header {
+    text-align: center;
+    margin: 50px 0;
+}
+
+/* Utility classes */
+.bold{
+    font-weight: bold;
+}
+
+.lighter{
+    opacity: .5;
+}
+
+.green-btn{
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    width: 100%;
+    background-color: #16DB99;
+    padding: 20px 30px;
+    margin: 20px 0 30px;
+}
