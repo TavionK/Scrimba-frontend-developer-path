@@ -26,7 +26,7 @@ function getCartHtml(){
         <div class="cart-item">
             <div class="cart-item-info">
                 <p>${food.name}</p>
-                <p class="lighter" data-index="${index}">remove</p>
+                <p class="lighter cursor" data-index="${index}">remove</p>
             </div>
             <div>
                 <p>$${food.price}</p>
@@ -37,16 +37,20 @@ function getCartHtml(){
     const totalPrice = cart.reduce(function(total, current){
         return total + current.price
     },0)
-
-    document.getElementById('cart').innerHTML = `
-    <p class="order-header">Your Order</p>
-    ${cartHtml.join("")}
-    <hr>
-    <div class = "cart-price">
-        <p>Total price:</p>
-        <p>$${totalPrice}</p>
-    </div>
-    <button class="green-btn">Complete order</button>`
+    if (cart.length > 0){
+        document.getElementById('cart').innerHTML = `
+        <p class="order-header">Your Order</p>
+        ${cartHtml.join("")}
+        <hr>
+        <div class = "cart-price">
+            <p>Total price:</p>
+            <p>$${totalPrice}</p>
+        </div>
+        <button class="green-btn">Complete order</button>`
+    }
+    else {
+        document.getElementById('cart').innerHTML = ""
+    }
 }
 
 function removeFromCart(index){
@@ -69,7 +73,7 @@ function getMenuItemsHtml() {
                 </div>
             </div>
             <div class="add-food">
-                <img class="add-cart-btn" class="add-cart-btn" src="/images/add-btn.png" role="button" data-id="${food.id}">
+                <img class="add-cart-btn cursor" class="add-cart-btn" src="/images/add-btn.png" role="button" data-id="${food.id}">
             </div>
         </div>`
     })

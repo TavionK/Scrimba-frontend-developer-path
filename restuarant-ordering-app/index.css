@@ -48,10 +48,6 @@ header {
     justify-self: end;
 }
 
-.add-cart-btn:hover{
-    cursor: pointer;
-}
-
 /* Cart Section */
 .cart-price{
     display: flex;
@@ -81,6 +77,10 @@ header {
 
 .lighter{
     opacity: .5;
+}
+
+.cursor{
+    cursor: pointer;
 }
 
 .green-btn{
