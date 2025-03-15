@@ -16,10 +16,10 @@ function addToCart(id){
             cart.push(food)
         }
     });
-    getCartHtml()
+    getCartItemsHtml()
 }
 
-function getCartHtml(){
+function getCartItemsHtml(){
     const itemsHtml = cart.map(function(food, index){
         return `
         <div class="cart-item">
@@ -33,9 +33,13 @@ function getCartHtml(){
         </div>`
     })
 
+    getFullCartHtml(itemsHtml)
+}
+
+function getFullCartHtml(itemsHtml){
     const totalCartPrice = getCartTotalPrice()
     
-    const cartHtml = `
+    const fullCartHtml = `
         <p class="order-header">Your Order</p>
         ${itemsHtml.join("")}
         <hr>
@@ -44,8 +48,8 @@ function getCartHtml(){
             <p>$${totalCartPrice}</p>
         </div>
         <button class="green-btn">Complete order</button>`
-
-    cart.length > 0 ? renderCart(cartHtml) : renderCart("")
+    
+        cart.length > 0 ? renderCart(fullCartHtml) : renderCart("")
 }
 
 function getCartTotalPrice(){
@@ -56,7 +60,7 @@ function getCartTotalPrice(){
 
 function removeFromCart(index){
     cart.splice(index, 1)
-    getCartHtml()
+    getCartItemsHtml()
 }
 
 function getMenuItemsHtml() {
