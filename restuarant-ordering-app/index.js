@@ -2,11 +2,16 @@ import { menuArray } from "/data.js"
 
 const cart = []
 document.addEventListener('click', function(e){
+    console.log(e.target.dataset)
     if (e.target.dataset.id){
     addToCart(e.target.dataset.id)
     }
     else if (e.target.dataset.index){
         removeFromCart(e.target.dataset.index)
+    }
+    else if (e.target.dataset.checkout){
+        console.log("running")
+        getCardDetails()
     }
 })
 
@@ -52,9 +57,13 @@ function getFullCartHtml(itemsHtml){
             <p>Total price:</p>
             <p>$${totalCartPrice}</p>
         </div>
-        <button class="green-btn">Complete order</button>`
+        <button data-checkout="true" class="green-btn cursor">Complete order</button>`
     
         cart.length > 0 ? renderCart(fullCartHtml) : renderCart("")
+}
+
+function getCardDetails(){
+    console.log("Button works")
 }
 
 function getMenuItemsHtml() {

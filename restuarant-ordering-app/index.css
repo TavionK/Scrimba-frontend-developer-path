@@ -66,6 +66,11 @@ header {
     justify-content: space-between;
 }
 
+/* Card Details Section */
+.card-details{
+    display: none;
+}
+
 
 /* Typography */
 .order-header {
