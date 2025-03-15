@@ -19,6 +19,11 @@ function addToCart(id){
     getCartItemsHtml()
 }
 
+function removeFromCart(index){
+    cart.splice(index, 1)
+    getCartItemsHtml()
+}
+
 function getCartItemsHtml(){
     const itemsHtml = cart.map(function(food, index){
         return `
@@ -52,37 +57,33 @@ function getFullCartHtml(itemsHtml){
         cart.length > 0 ? renderCart(fullCartHtml) : renderCart("")
 }
 
-function getCartTotalPrice(){
-    return cart.reduce(function(total, current){
-        return total + current.price
-    }, 0)
-}
-
-function removeFromCart(index){
-    cart.splice(index, 1)
-    getCartItemsHtml()
-}
-
 function getMenuItemsHtml() {
     const menuItemsHtml = menuArray.map(function(food){
         return `
         <div class = "food-card">
-            <div class="food-info">   
-                <div class="food-image">
-                    <p class="icon">${food.emoji}</p>
-                </div>
-                <div class="food-text">
-                    <p>${food.name}</p>
-                    <p class="lighter">${food.ingredients.join(", ")}</p>
-                    <p class="bold">$${food.price}</p>
-                </div>
-            </div>
-            <div class="add-food">
-                <img class="add-cart-btn cursor" class="add-cart-btn" src="/images/add-btn.png" role="button" data-id="${food.id}">
-            </div>
+        <div class="food-info">   
+        <div class="food-image">
+        <p class="icon">${food.emoji}</p>
+        </div>
+        <div class="food-text">
+        <p>${food.name}</p>
+        <p class="lighter">${food.ingredients.join(", ")}</p>
+        <p class="bold">$${food.price}</p>
+        </div>
+        </div>
+        <div class="add-food">
+        <img class="add-cart-btn cursor" class="add-cart-btn" src="/images/add-btn.png" role="button" data-id="${food.id}">
+        </div>
         </div>`
     })
     return menuItemsHtml
+}
+
+// Functions that don't call another function
+function getCartTotalPrice(){
+    return cart.reduce(function(total, current){
+        return total + current.price
+    }, 0)
 }
 
 function render(){
