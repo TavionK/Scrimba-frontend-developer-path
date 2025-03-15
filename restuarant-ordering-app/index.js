@@ -1,7 +1,6 @@
 import { menuArray } from "/data.js"
 
 const cart = []
-let cartIdCounter = 0
 document.addEventListener('click', function(e){
     if (e.target.dataset.id){
     addToCart(e.target.dataset.id)
