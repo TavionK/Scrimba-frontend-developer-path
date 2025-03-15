@@ -52,7 +52,7 @@ function getFullCartHtml(itemsHtml){
             <p>Total price:</p>
             <p>$${totalCartPrice}</p>
         </div>
-        <button class="green-btn">Complete order</button>`
+        <button class="green-btn cursor">Complete order</button>`
     
         cart.length > 0 ? renderCart(fullCartHtml) : renderCart("")
 }
@@ -94,4 +94,9 @@ function renderCart(cartHtml){
     document.getElementById('cart').innerHTML = cartHtml
 }
 
+function showCheckout(){
+    document.getElementById('checkout').style.display = "block"
+}
+
 render()
+showCheckout()
