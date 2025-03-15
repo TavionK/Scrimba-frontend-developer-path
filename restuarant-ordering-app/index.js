@@ -32,10 +32,18 @@ function getCartHtml(){
             </div>
         </div>`
     })
+    renderCart(cartHtml)
+}
 
+function totalPrice(){
+    return cart.reduce(function(total, current){
+        return total + current.price
+    }, 0)
+}
+
+function renderCart(cartHtml){
     const totalCartPrice = totalPrice()
-    
-    if (cart.length > 0){
+    if (cart.length > 0){ 
         document.getElementById('cart').innerHTML = `
         <p class="order-header">Your Order</p>
         ${cartHtml.join("")}
@@ -45,16 +53,10 @@ function getCartHtml(){
             <p>$${totalCartPrice}</p>
         </div>
         <button class="green-btn">Complete order</button>`
-    }
-    else {
+     }
+     else{
         document.getElementById('cart').innerHTML = ""
-    }
-}
-
-function totalPrice(){
-    return cart.reduce(function(total, current){
-        return total + current.price
-    }, 0)
+     }
 }
 
 function removeFromCart(index){
