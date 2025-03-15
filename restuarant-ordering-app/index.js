@@ -20,7 +20,7 @@ function addToCart(id){
 }
 
 function getCartHtml(){
-    const cartHtml = cart.map(function(food, index){
+    const itemsHtml = cart.map(function(food, index){
         return `
         <div class="cart-item">
             <div class="cart-item-info">
@@ -32,31 +32,26 @@ function getCartHtml(){
             </div>
         </div>`
     })
-    renderCart(cartHtml)
-}
 
-function totalPrice(){
-    return cart.reduce(function(total, current){
-        return total + current.price
-    }, 0)
-}
-
-function renderCart(cartHtml){
-    const totalCartPrice = totalPrice()
-    if (cart.length > 0){ 
-        document.getElementById('cart').innerHTML = `
+    const totalCartPrice = getCartTotalPrice()
+    
+    const cartHtml = `
         <p class="order-header">Your Order</p>
-        ${cartHtml.join("")}
+        ${itemsHtml.join("")}
         <hr>
         <div class = "cart-price">
             <p>Total price:</p>
             <p>$${totalCartPrice}</p>
         </div>
         <button class="green-btn">Complete order</button>`
-     }
-     else{
-        document.getElementById('cart').innerHTML = ""
-     }
+
+    cart.length > 0 ? renderCart(cartHtml) : renderCart("")
+}
+
+function getCartTotalPrice(){
+    return cart.reduce(function(total, current){
+        return total + current.price
+    }, 0)
 }
 
 function removeFromCart(index){
@@ -88,6 +83,10 @@ function getMenuItemsHtml() {
 
 function render(){
     document.getElementById('menu').innerHTML = getMenuItemsHtml().join("")
+}
+
+function renderCart(cartHtml){
+    document.getElementById('cart').innerHTML = cartHtml
 }
 
 render()
