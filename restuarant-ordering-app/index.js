@@ -33,9 +33,8 @@ function getCartHtml(){
         </div>`
     })
 
-    const totalPrice = cart.reduce(function(total, current){
-        return total + current.price
-    },0)
+    const totalCartPrice = totalPrice()
+    
     if (cart.length > 0){
         document.getElementById('cart').innerHTML = `
         <p class="order-header">Your Order</p>
@@ -43,13 +42,19 @@ function getCartHtml(){
         <hr>
         <div class = "cart-price">
             <p>Total price:</p>
-            <p>$${totalPrice}</p>
+            <p>$${totalCartPrice}</p>
         </div>
         <button class="green-btn">Complete order</button>`
     }
     else {
         document.getElementById('cart').innerHTML = ""
     }
+}
+
+function totalPrice(){
+    return cart.reduce(function(total, current){
+        return total + current.price
+    }, 0)
 }
 
 function removeFromCart(index){
