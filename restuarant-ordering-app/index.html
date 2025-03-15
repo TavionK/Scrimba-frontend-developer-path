@@ -21,14 +21,16 @@
 
       <div id="cart" class="container"></div>
 
-      <div id="card-details" class="container card-details">
+      <form id="card-form" class="card-form">
         <p class="bold block">Enter card details</p>
+        <label for="name">Name</label>
         <input
           type="text"
           name="name"
           id="name"
           placeholder="Enter your name"
         />
+        <label for="card-number">Card Number</label>
         <input
           class="block"
           type="number"
@@ -36,6 +38,7 @@
           id="card-number"
           placeholder="Enter card number"
         />
+        <label for="cvv">CVV</label>
         <input
           class="block"
           type="number"
@@ -43,8 +46,8 @@
           id="cvv"
           placeholder="Enter CVV"
         />
-        <button class="green-btn">Pay</button>
-      </div>
+        <button id="submit-btn" class="green-btn cursor">Pay</button>
+      </form>
     </main>
     <script src="index.js" type="module"></script>
   </body>

@@ -1,8 +1,12 @@
+// imports
 import { menuArray } from "/data.js"
 
+// const variables
+const cardForm = document.getElementById("card-form")
 const cart = []
+
+
 document.addEventListener('click', function(e){
-    console.log(e.target.dataset)
     if (e.target.dataset.id){
     addToCart(e.target.dataset.id)
     }
@@ -10,8 +14,7 @@ document.addEventListener('click', function(e){
         removeFromCart(e.target.dataset.index)
     }
     else if (e.target.dataset.checkout){
-        console.log("running")
-        getCardDetails()
+        getCardForm()
     }
 })
 
@@ -62,8 +65,8 @@ function getFullCartHtml(itemsHtml){
         cart.length > 0 ? renderCart(fullCartHtml) : renderCart("")
 }
 
-function getCardDetails(){
-    console.log("Button works")
+function getCardForm(){
+    cardForm.style.display = 'inline'
 }
 
 function getMenuItemsHtml() {

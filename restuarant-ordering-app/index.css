@@ -66,9 +66,46 @@ header {
     justify-content: space-between;
 }
 
-/* Card Details Section */
-.card-details{
+/* Card Form Section */
+
+.card-form{
     display: none;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    padding: 200px;
+    /* border: 2px solid black; */
+    box-shadow: 0 0 999px black;
+}
+
+.card-form p{
+    text-align: center;
+}
+
+.card-form input{
+    width: 100%;
+    margin: 10px 0;
+}
+
+.card-form label{
+    visibility: hidden;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]{
+    -moz-appearance: textfield;
 }
 
 
@@ -106,3 +143,4 @@ header {
 .block{
     display: block;
 }
+
