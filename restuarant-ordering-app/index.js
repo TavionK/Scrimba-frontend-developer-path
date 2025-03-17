@@ -1,8 +1,8 @@
 import { menuArray } from "/data.js"
 
 const cart = []
+
 document.addEventListener('click', function(e){
-    console.log(e.target.dataset)
     if (e.target.dataset.id){
     addToCart(e.target.dataset.id)
     }
@@ -10,13 +10,22 @@ document.addEventListener('click', function(e){
         removeFromCart(e.target.dataset.index)
     }
     else if (e.target.dataset.order){
-        console.log("button working")
-        renderCheckout()
+        getCheckoutHtml()
     }
     else if (e.target.dataset.pay){
-        
+        // validate that form is filled out
+        // take note of name field
+        // removeCheckout
+        // display thank you message
+        removeCheckout()
+        getThanksHtml()
     }
 })
+
+function removeFromCart(index){
+    cart.splice(index, 1)
+    getCartItemsHtml()
+}
 
 function addToCart(id){
     menuArray.forEach(function(food){
@@ -24,11 +33,6 @@ function addToCart(id){
             cart.push(food)
         }
     });
-    getCartItemsHtml()
-}
-
-function removeFromCart(index){
-    cart.splice(index, 1)
     getCartItemsHtml()
 }
 
@@ -87,22 +91,7 @@ function getMenuItemsHtml() {
     return menuItemsHtml
 }
 
-// Functions that don't call another function
-function getCartTotalPrice(){
-    return cart.reduce(function(total, current){
-        return total + current.price
-    }, 0)
-}
-
-function render(){
-    document.getElementById('menu').innerHTML = getMenuItemsHtml().join("")
-}
-
-function renderCart(cartHtml){
-    document.getElementById('cart').innerHTML = cartHtml
-}
-
-function renderCheckout(){
+function getCheckoutHtml(){
     const checkoutHtml = `
     <form class="checkout-form">
           <p class="form-header">Enter card details</p>
@@ -126,10 +115,38 @@ function renderCheckout(){
           id="cvv"
           name="cvv"
           placeholder="Enter CVV" />
-          <button class="green-btn pay-btn cursor" data-pay="true">Pay</button>
+          <button data-pay="1" class="green-btn cursor">Pay</button>
         </form>`
-    document.getElementById('checkout').innerHTML = checkoutHtml
+    renderCheckout(checkoutHtml)
 }
 
-render()
-// showCheckout()
+function removeCheckout(){
+    document.getElementById('checkout').innerHTML = ""
+}
+
+function getThanksHtml(){
+    console.log("inside getThanksHtml()")
+    const thanksHtml = `<div class="thank-you-div"><p class="thank-you">Thanks, James! Your order is on its way!</p></div>`
+    renderCart(thanksHtml)
+}
+
+function getCartTotalPrice(){
+    return cart.reduce(function(total, current){
+        return total + current.price
+    }, 0)
+}
+
+// Render Functions
+function renderMenu(){
+    document.getElementById('menu').innerHTML = getMenuItemsHtml().join("")
+}
+
+function renderCart(htmlStr){
+    document.getElementById('cart').innerHTML = htmlStr
+}
+
+function renderCheckout(htmlStr){
+    document.getElementById('checkout').innerHTML = htmlStr
+}
+
+renderMenu()
