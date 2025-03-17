@@ -67,33 +67,32 @@ header {
 }
 
 /* Checkout Section */
-#checkout{
-    /* display: none; */
-}
 .checkout-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    
+    background-color: white;
     text-align: center;
-    /* display: none; */
     box-shadow: 0 0 999px black;
     border-radius: 5px;
     padding: 20px 15px;
     margin: 0 auto;
 }
 
-.checkout-form label{
-    visibility: hidden;
-}
-
 .checkout-form input{
     display: block;
     padding: 10px 15px;
-    margin: auto;
+    margin: 0 0 15px;
 }
 
 .form-header{
     font-weight: bold;
     font-size: 1.25rem;
 }
-/* get rid of styling for the number input fields */
+
+
+/* Remove Input Fields Styling */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
     -webkit-appearance: none;
