@@ -68,7 +68,7 @@ header {
 
 /* Checkout Section */
 #checkout{
-    display: none;
+    /* display: none; */
 }
 .checkout-form {
     text-align: center;

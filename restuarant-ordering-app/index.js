@@ -2,6 +2,7 @@ import { menuArray } from "/data.js"
 
 const cart = []
 document.addEventListener('click', function(e){
+    console.log(e.target.dataset)
     if (e.target.dataset.id){
     addToCart(e.target.dataset.id)
     }
@@ -10,7 +11,10 @@ document.addEventListener('click', function(e){
     }
     else if (e.target.dataset.order){
         console.log("button working")
-        showCheckout()
+        renderCheckout()
+    }
+    else if (e.target.dataset.pay){
+        
     }
 })
 
@@ -98,8 +102,29 @@ function renderCart(cartHtml){
     document.getElementById('cart').innerHTML = cartHtml
 }
 
-function showCheckout(){
-    document.getElementById('checkout').style.display = "block"
+function renderCheckout(){
+    const checkoutHtml = `
+    <form class="checkout-form">
+          <p class="form-header">Enter card details</p>
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+          />
+          <label for="card-number">Enter card number</label>
+          <input
+            type="number"
+            id="card-number"
+            name="card-number"
+            placeholder="Enter card number"
+          />
+          <label for="cvv">Enter CVV</label>
+          <input type="number" id="cvv" name="cvv" placeholder="Enter CVV" />
+          <button class="green-btn pay-btn cursor" data-pay="true">Pay</button>
+        </form>`
+    document.getElementById('checkout').innerHTML = checkoutHtml
 }
 
 render()
