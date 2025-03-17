@@ -19,7 +19,38 @@
         <p>Default</p>
       </div>
       <div id="cart" class="container"></div>
-      <div id="checkout" class="container"></div>
+      <div id="checkout" class="container">
+        <form id="checkout-form" class="checkout-form">
+          <p class="form-header">Enter card details</p>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            aria-label="Name"
+            placeholder="Enter your name"
+            required
+          />
+          <input
+            aria-label="Enter card number"
+            type="number"
+            id="card-number"
+            name="card-number"
+            placeholder="Enter card number"
+            required
+          />
+          <input
+            aria-label="Enter CVV"
+            type="number"
+            id="cvv"
+            name="cvv"
+            placeholder="Enter CVV"
+            required
+          />
+          <button type="submit" data-pay="1" class="green-btn cursor">
+            Pay
+          </button>
+        </form>
+      </div>
     </main>
     <script src="index.js" type="module"></script>
   </body>

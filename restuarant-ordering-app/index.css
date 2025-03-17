@@ -68,6 +68,7 @@ header {
 
 /* Checkout Section */
 .checkout-form {
+    visibility: hidden;
     position: fixed;
     top: 50%;
     left: 50%;

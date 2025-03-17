@@ -1,7 +1,7 @@
 import { menuArray } from "/data.js"
 
 const cart = []
-
+const checkoutForm = document.getElementById("checkout-form")
 document.addEventListener('click', function(e){
     if (e.target.dataset.id){
     addToCart(e.target.dataset.id)
@@ -10,18 +10,17 @@ document.addEventListener('click', function(e){
         removeFromCart(e.target.dataset.index)
     }
     else if (e.target.dataset.order){
-        getCheckoutHtml()
-    }
-    else if (e.target.dataset.pay){
-        // validate that form is filled out
-        // take note of name field
-        // removeCheckout
-        // display thank you message
-        removeCheckout()
-        getThanksHtml()
+        showCheckoutHtml()
     }
 })
 
+checkoutForm.addEventListener('submit', function(e){
+    e.preventDefault()
+    const formData = new FormData(checkoutForm)
+    const name = formData.get('name')
+    hideCheckoutHtml()
+    renderThanksHtml(name)    
+})
 function removeFromCart(index){
     cart.splice(index, 1)
     getCartItemsHtml()
@@ -91,42 +90,19 @@ function getMenuItemsHtml() {
     return menuItemsHtml
 }
 
-function getCheckoutHtml(){
-    const checkoutHtml = `
-    <form class="checkout-form">
-          <p class="form-header">Enter card details</p>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            aria-label="Name"
-            placeholder="Enter your name"
-          />
-          <input
-            aria-label="Enter card number"
-            type="number"
-            id="card-number"
-            name="card-number"
-            placeholder="Enter card number"
-          />
-          <input
-          aria-label="Enter CVV"
-          type="number"
-          id="cvv"
-          name="cvv"
-          placeholder="Enter CVV" />
-          <button data-pay="1" class="green-btn cursor">Pay</button>
-        </form>`
-    renderCheckout(checkoutHtml)
+function showCheckoutHtml(){
+    checkoutForm.style.visibility = "visible"
 }
 
-function removeCheckout(){
-    document.getElementById('checkout').innerHTML = ""
+function hideCheckoutHtml(){
+    checkoutForm.style.visibility = "hidden"
 }
 
-function getThanksHtml(){
-    console.log("inside getThanksHtml()")
-    const thanksHtml = `<div class="thank-you-div"><p class="thank-you">Thanks, James! Your order is on its way!</p></div>`
+function renderThanksHtml(name){
+    const thanksHtml = `
+    <div class="thank-you-div">
+        <p class="thank-you">Thanks, ${name}! Your order is on its way!</p>
+    </div>`
     renderCart(thanksHtml)
 }
 
@@ -143,10 +119,6 @@ function renderMenu(){
 
 function renderCart(htmlStr){
     document.getElementById('cart').innerHTML = htmlStr
-}
-
-function renderCheckout(htmlStr){
-    document.getElementById('checkout').innerHTML = htmlStr
 }
 
 renderMenu()
