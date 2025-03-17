@@ -67,12 +67,38 @@ header {
 }
 
 /* Checkout Section */
-#checkout{
-    display: none;
+.checkout-form {
+    text-align: center;
+    /* display: none; */
+    box-shadow: 0 0 999px black;
+    border-radius: 5px;
+    padding: 20px 15px;
+    margin: 0 auto;
 }
 
 .checkout-form label{
     visibility: hidden;
+}
+
+.checkout-form input{
+    display: block;
+    padding: 10px 15px;
+    margin: auto;
+}
+
+.form-header{
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+/* get rid of styling for the number input fields */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]{
+    -moz-appearance: textfield;
 }
 
 /* Typography */
