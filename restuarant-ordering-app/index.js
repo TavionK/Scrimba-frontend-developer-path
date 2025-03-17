@@ -106,22 +106,26 @@ function renderCheckout(){
     const checkoutHtml = `
     <form class="checkout-form">
           <p class="form-header">Enter card details</p>
-          <label for="name">Name</label>
           <input
             type="text"
             id="name"
             name="name"
+            aria-label="Name"
             placeholder="Enter your name"
           />
-          <label for="card-number">Enter card number</label>
           <input
+            aria-label="Enter card number"
             type="number"
             id="card-number"
             name="card-number"
             placeholder="Enter card number"
           />
-          <label for="cvv">Enter CVV</label>
-          <input type="number" id="cvv" name="cvv" placeholder="Enter CVV" />
+          <input
+          aria-label="Enter CVV"
+          type="number"
+          id="cvv"
+          name="cvv"
+          placeholder="Enter CVV" />
           <button class="green-btn pay-btn cursor" data-pay="true">Pay</button>
         </form>`
     document.getElementById('checkout').innerHTML = checkoutHtml
