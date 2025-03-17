@@ -8,6 +8,10 @@ document.addEventListener('click', function(e){
     else if (e.target.dataset.index){
         removeFromCart(e.target.dataset.index)
     }
+    else if (e.target.dataset.order){
+        console.log("button working")
+        showCheckout()
+    }
 })
 
 function addToCart(id){
@@ -52,7 +56,7 @@ function getFullCartHtml(itemsHtml){
             <p>Total price:</p>
             <p>$${totalCartPrice}</p>
         </div>
-        <button class="green-btn cursor">Complete order</button>`
+        <button data-order="true" class="green-btn cursor">Complete order</button>`
     
         cart.length > 0 ? renderCart(fullCartHtml) : renderCart("")
 }
@@ -99,4 +103,4 @@ function showCheckout(){
 }
 
 render()
-showCheckout()
+// showCheckout()
